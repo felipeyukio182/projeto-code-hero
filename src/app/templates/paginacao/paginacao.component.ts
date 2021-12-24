@@ -32,7 +32,15 @@ export class PaginacaoComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes)
-    if(changes['tamanhoLista']){      
+    if(changes['tamanhoLista']){
+      this.calcularQtdePaginas()
+      this.menorPagina = this.calcularMenorPagina(1)
+      this.maiorPagina = this.calcularMaiorPagina(this.menorPagina) 
+      this.montarArrayPaginas()
+    }
+    if(changes['pagina']) {
+      this.menorPagina = this.calcularMenorPagina(changes['pagina'].currentValue)
+      this.maiorPagina = this.calcularMaiorPagina(this.menorPagina)
       this.montarArrayPaginas()
     }
   }
@@ -40,6 +48,9 @@ export class PaginacaoComponent implements OnInit, OnChanges {
   ///////////////////////////////////////////////////////////////////////////////////
   // Mudando de paginação
   selecionarPagina(pagina: number) {
+    if(pagina == this.pagina) {
+      return
+    }
     this.pagina = pagina
     this.menorPagina = this.calcularMenorPagina(this.pagina)
     this.maiorPagina = this.calcularMaiorPagina(this.menorPagina)
@@ -101,12 +112,15 @@ export class PaginacaoComponent implements OnInit, OnChanges {
     return maior < this.qtdePaginas ? maior : this.qtdePaginas
   }
 
+  calcularQtdePaginas() {
+    this.qtdePaginas = Math.ceil(this.tamanhoLista/this.itensPorPagina)
+  }
   montarArrayPaginas() {
     this.arrayPaginas = []
-    this.qtdePaginas = Math.ceil(this.tamanhoLista/this.itensPorPagina)
     for(let i = this.menorPagina; i < this.maiorPagina + 1; i++) {
       this.arrayPaginas.push(i)
     }
+    console.log(this.qtdePaginas)
   }
 
   esconderSetasPaginacao(tipoSeta: "primeira"|"anterior"|"proxima"|"ultima") {

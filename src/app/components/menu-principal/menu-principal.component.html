@@ -1,10 +1,12 @@
 
 <header class="menu-principal-header">
-    <img class="logo" src="https://www.objective.com.br/wp-content/uploads/2020/11/logo.svg" alt="Objective">
-    <div class="display-flex">
-        <span class="nome-candidato"><strong>{{ nomeDoCandidato }}</strong>&nbsp;Teste de Front-end</span>
-        <div class="cb">
-            <span><strong>CB</strong></span>
+    <div>
+        <img class="logo" src="https://www.objective.com.br/wp-content/uploads/2020/11/logo.svg" alt="Objective">
+        <div class="display-flex">
+            <span class="nome-candidato"><strong>{{ nomeDoCandidato }}</strong>&nbsp;Teste de Front-end</span>
+            <div class="cb">
+                <span><strong>CB</strong></span>
+            </div>
         </div>
     </div>
 </header>
@@ -19,7 +21,7 @@
             <div class="pesquisa">
                 <label for="nomeDoPersonagemPesquisa"><strong>Nome do personagem</strong></label>
                 <div class="pesquisa-div">
-                    <input id="nomeDoPersonagemPesquisa" type="text" placeholder="Search">
+                    <input id="nomeDoPersonagemPesquisa" type="text" placeholder="Search" [formControl]="nomeDoPersonagemPesquisa">
                     <i class="fa fa-search lupa"></i>
                 </div>
             </div>
@@ -35,17 +37,21 @@
                 <tbody>
                     <tr *ngFor="let personagem of listaPersonagens" class="card-personagem">
                         <td class="personagem">
-                            <img src="" alt="">
-                            <span class="nome-personagem"><strong>{{ personagem.name }}</strong></span>
+                            <div class="personagem-div">
+                                <img class="thumbnail" src="{{ personagem.thumbnail.path }}/standard_medium.{{ personagem.thumbnail.extension }}" alt="{{ personagem.name }}">
+                                <span class="nome-personagem"><strong>{{ personagem.name }}</strong></span>
+                            </div>
                         </td>
                         <td class="series">
-                            <div *ngFor="let serie of personagem.series.items" class="nome-serie">
-                                <span>{{ serie.name }}</span>
+                            <div *ngFor="let serie of personagem.series.items, index as i" class="nome-serie">
+                                <span *ngIf="i < 4">{{ serie.name.slice(0, 59) }}</span>
+                                <span *ngIf="i == 4">+{{ personagem.series.available - i }}</span>
                             </div>
                         </td>
                         <td class="eventos">
-                            <div *ngFor="let evento of personagem.events.items" class="nome-evento">
-                                <span>{{ evento.name }}</span>
+                            <div *ngFor="let evento of personagem.events.items, index as i" class="nome-evento">
+                                <span *ngIf="i < 4">{{ evento.name.slice(0, 59) }}</span>
+                                <span *ngIf="i == 4">+{{ personagem.events.available - i }}</span>
                             </div>
                         </td>
                     </tr>
