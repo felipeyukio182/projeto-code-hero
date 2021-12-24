@@ -1,0 +1,37 @@
+.paginacao {
+    display: inline-block;
+  }
+  
+.paginacao a {
+  color: black;
+  float: left;
+  padding: 6px 16px;
+  text-decoration: none;
+  font-size: 16px;
+  background: #F5F5F5 0% 0% no-repeat padding-box;
+  border: 1px solid #E5E5E5;
+  border-radius: 3px;
+  opacity: 1;
+  margin: 0px 8px;
+  font-family: sans-serif;
+}
+
+.paginacao a.ativo {
+  background: #167ABC 0% 0% no-repeat padding-box;
+  border: 1px solid #167ABC;
+  opacity: 1;
+
+  color: #F5F5F5;
+}
+
+.paginacao a.setas {
+  background: white;
+  padding: 6px 16px;
+  height: 20px;
+  margin: 0px;
+  border: none;
+}
+
+.paginacao a:hover:not(.ativo) {
+  background-color: #ddd;
+}

@@ -1,0 +1,110 @@
+/* -- HEADER -- */
+.menu-principal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* min-width: 1366px; */
+    width: 100%;
+    height: 64px;   
+
+    font-family: sans-serif;
+}
+.menu-principal-header .logo {
+    height: 24px;
+    padding-left: 24px;
+}
+.menu-principal-header .nome-candidato {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555555;
+}
+.menu-principal-header .cb {
+    padding: 0px 24px;
+}
+.menu-principal-header .cb span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    width: 32px;
+    background: #F5F5F5 0% 0% no-repeat padding-box;
+    border-radius: 4px;
+    opacity: 1;
+}
+
+/* -- MAIN -- */
+.menu-principal-main {
+    background-color: #E5E5E5;
+    height: calc(100vh - 64px - 96px);
+    font-family: sans-serif;
+}
+.menu-principal-main > .corpo {
+    padding: 40px 113px;
+}
+.menu-principal-main h1 {
+    margin: 0px 0px 16px 0px;
+    letter-spacing: 0px;
+    color: #555555;
+    opacity: 1;
+    font-size: 32px;
+    height: 36px;
+}
+.menu-principal-main .pesquisa {
+    height: 59px;
+    width: 295px;
+}
+.menu-principal-main .pesquisa label {
+    color: #555555;
+    opacity: 1;
+    font-size: 16px;
+}
+.menu-principal-main .pesquisa .pesquisa-div {
+    margin-top: 8px;
+    width: 295px;
+    height: 32px;
+    position: relative;
+}
+.menu-principal-main .pesquisa .pesquisa-div input {
+    width: 261px;
+    height: 32px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #E5E5E5;
+    border-radius: 4px;
+    opacity: 1;
+    font-size: 16px;
+    padding: 0px 16px;
+}
+.menu-principal-main .pesquisa .pesquisa-div input::placeholder {
+    font-style: italic;
+    color: #8E8E8E;
+}
+.menu-principal-main .pesquisa .pesquisa-div input:focus {
+    outline: none;
+    border: 2px solid #3e7bff;
+    box-shadow: 0 0 5px #7aaadd;
+}
+.menu-principal-main .pesquisa .pesquisa-div .lupa {
+    position: absolute;
+    top: 4px;
+    right: 16px;
+    font-size: 16px;
+    width: 24px;
+    height: 24px;
+    opacity: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #8E8E8E;
+}
+
+/* -- FOOTER -- */
+.menu-principal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* min-width: 1366px; */
+    width: 100%;
+    height: 96px;
+    margin: auto;
+}

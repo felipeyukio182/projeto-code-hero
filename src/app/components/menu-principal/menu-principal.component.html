@@ -1,0 +1,55 @@
+
+<header class="menu-principal-header">
+    <img class="logo" src="https://www.objective.com.br/wp-content/uploads/2020/11/logo.svg" alt="Objective">
+    <div class="display-flex">
+        <span class="nome-candidato"><strong>{{ nomeDoCandidato }}</strong>&nbsp;Teste de Front-end</span>
+        <div class="cb">
+            <span><strong>CB</strong></span>
+        </div>
+    </div>
+</header>
+
+
+<main class="menu-principal-main">
+    <app-carregando *ngIf="carregando"></app-carregando>
+
+    <ng-container *ngIf="!carregando">
+        <div class="corpo">
+            <h1>Busca de Personagens</h1>
+            <div class="pesquisa">
+                <label for="nomeDoPersonagemPesquisa"><strong>Nome do personagem</strong></label>
+                <div class="pesquisa-div">
+                    <input id="nomeDoPersonagemPesquisa" type="text" placeholder="Search">
+                    <i class="fa fa-search lupa"></i>
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Personagem</th>
+                        <th>Séries</th>
+                        <th>Eventos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <img src="" alt="">
+                            <span>NOME DO PERSONAGEM</span>
+                        </td>
+                        <td>
+                            <div>VARIAS SERIES</div>
+                        </td>
+                        <td>
+                            <div>VARIOS EVENTOS</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </ng-container>
+</main>
+
+<footer class="menu-principal-footer">
+    <app-paginacao></app-paginacao>
+</footer>

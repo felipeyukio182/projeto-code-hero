@@ -1,0 +1,14 @@
+.carregando {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    min-height: 85vh;
+}
+
+.carregando > img {
+    height: 200px;
+}
+
