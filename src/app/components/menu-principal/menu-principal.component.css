@@ -53,6 +53,7 @@
 .menu-principal-main .pesquisa {
     height: 59px;
     width: 295px;
+    margin-bottom: 40px;
 }
 .menu-principal-main .pesquisa label {
     color: #555555;
@@ -96,6 +97,66 @@
     align-items: center;
     justify-content: center;
     color: #8E8E8E;
+}
+
+.tabela-personagens {
+    width: 100%;
+    font-family: sans-serif;
+    border-spacing: 0px;
+}
+.tabela-personagens th {
+    text-align: start;
+    letter-spacing: 0px;
+    color: #8E8E8E;
+    opacity: 1;
+    font-size: 12px;
+    padding: 0px 0px 9px 24px;
+}
+.tabela-personagens tr.card-personagem {
+    height: 88px;
+    box-shadow: 0px 0px 5px #00000033;
+}
+.tabela-personagens tr.card-personagem .personagem {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border-radius: 4px 0px 0px 4px;
+    opacity: 1;
+    width: 33.33%;
+    max-width: 380px;
+    padding-left: 24px;
+}
+.tabela-personagens tr.card-personagem .personagem .nome-personagem {
+    font-size: 16px;
+    letter-spacing: 0px;
+    color: #555555;
+    opacity: 1;
+    padding-left: 24px;
+}
+.tabela-personagens tr.card-personagem .series {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    opacity: 1;
+    width: 33.33%;
+    max-width: 380px;
+    padding-left: 24px;
+}
+.tabela-personagens tr.card-personagem .series .nome-serie {
+    font-size: 14px;
+    letter-spacing: 0px;
+    color: #555555;
+    opacity: 1;
+}
+.tabela-personagens tr.card-personagem .eventos {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border-radius: 0px 4px 4px 0px;
+    opacity: 1;
+    width: 33.33%;
+    max-width: 380px;
+    padding-left: 24px;
+}
+.tabela-personagens tr.card-personagem .eventos .nome-evento {
+    font-size: 14px;
+    letter-spacing: 0px;
+    color: #555555;
+    opacity: 1;
 }
 
 /* -- FOOTER -- */

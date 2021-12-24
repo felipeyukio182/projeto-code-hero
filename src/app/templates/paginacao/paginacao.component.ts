@@ -37,6 +37,8 @@ export class PaginacaoComponent implements OnInit, OnChanges {
     }
   }
 
+  ///////////////////////////////////////////////////////////////////////////////////
+  // Mudando de paginação
   selecionarPagina(pagina: number) {
     this.pagina = pagina
     this.menorPagina = this.calcularMenorPagina(this.pagina)
@@ -70,6 +72,26 @@ export class PaginacaoComponent implements OnInit, OnChanges {
     this.paginaChange.emit(this.pagina)
   }
 
+  irParaPrimeiraPagina() {
+    this.pagina = 1
+    this.menorPagina = this.calcularMenorPagina(this.pagina)
+    this.maiorPagina = this.calcularMaiorPagina(this.menorPagina)
+    this.montarArrayPaginas()
+    console.log(this.pagina, this.menorPagina, this.maiorPagina, this.arrayPaginas)
+    this.paginaChange.emit(this.pagina)
+  }
+
+  irParaUltimaPagina() {
+    this.pagina = this.qtdePaginas
+    this.menorPagina = this.calcularMenorPagina(this.pagina)
+    this.maiorPagina = this.calcularMaiorPagina(this.menorPagina)
+    this.montarArrayPaginas()
+    console.log(this.pagina, this.menorPagina, this.maiorPagina, this.arrayPaginas)
+    this.paginaChange.emit(this.pagina)
+  }
+
+  ///////////////////////////////////////////////////////////////////////////////////
+  // Utils
   calcularMenorPagina(pagAtual: number) {
     const menorPag = pagAtual - this.distancia
     return menorPag > 1 ? menorPag : 1
@@ -84,6 +106,19 @@ export class PaginacaoComponent implements OnInit, OnChanges {
     this.qtdePaginas = Math.ceil(this.tamanhoLista/this.itensPorPagina)
     for(let i = this.menorPagina; i < this.maiorPagina + 1; i++) {
       this.arrayPaginas.push(i)
+    }
+  }
+
+  esconderSetasPaginacao(tipoSeta: "primeira"|"anterior"|"proxima"|"ultima") {
+    const pag = this.pagina
+    const qtdePag = this.qtdePaginas
+    if((pag <= 2 && tipoSeta == "primeira") || 
+       (pag == 1 && tipoSeta == "anterior") || 
+       (pag == qtdePag && tipoSeta == "proxima") || 
+       (pag >= qtdePag - 1 && tipoSeta == "ultima")) {
+      return "setas setas-esconder"
+    } else {
+      return "setas"
     }
   }
 

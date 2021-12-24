@@ -1,9 +1,9 @@
 <div *ngIf="tamanhoLista > 0" class="paginacao">
-  <a class="setas" (click)="irParaPaginaAnterior()">&laquo;</a>
-  <a class="setas" (click)="irParaPaginaAnterior()">&#8249;</a>
+  <a [ngClass]="esconderSetasPaginacao('primeira')" (click)="irParaPrimeiraPagina()">&laquo;</a>
+  <a [ngClass]="esconderSetasPaginacao('anterior')" (click)="irParaPaginaAnterior()">&#8249;</a>
   <!-- <a *ngFor="let l of arrayPaginas, index as i" (click)="selecionarPagina(i + 1)" [ngClass]="pagina == i + 1 ? 'ativo' : ''">{{ i + 1 }}</a> -->
   <a *ngFor="let l of arrayPaginas, index as i" (click)="selecionarPagina(l)" [ngClass]="pagina == l ? 'ativo' : ''">{{ l }}</a>
-  <a class="setas" (click)="irParaProximaPagina()">&#8250;</a>
-  <a class="setas" (click)="irParaProximaPagina()">&raquo;</a>
+  <a [ngClass]="esconderSetasPaginacao('proxima')" (click)="irParaProximaPagina()">&#8250;</a>
+  <a [ngClass]="esconderSetasPaginacao('ultima')" (click)="irParaUltimaPagina()">&raquo;</a>
 </div>
   

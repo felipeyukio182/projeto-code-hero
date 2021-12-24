@@ -31,6 +31,9 @@
   margin: 0px;
   border: none;
 }
+.paginacao a.setas.setas-esconder {
+  opacity: 0;
+}
 
 .paginacao a:hover:not(.ativo) {
   background-color: #ddd;
