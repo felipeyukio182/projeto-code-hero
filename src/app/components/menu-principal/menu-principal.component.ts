@@ -24,6 +24,7 @@ export class MenuPrincipalComponent implements OnInit {
 
   ngOnInit(): void {
     this.buscarListaPersonagens()
+    
 
     this.nomeDoPersonagemPesquisa.valueChanges.pipe(
       debounceTime(500),
