@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { concatMap, debounceTime, Observable } from 'rxjs';
 import { RequisicaoService } from 'src/app/services/requisicao.service';
 
@@ -9,8 +10,6 @@ import { RequisicaoService } from 'src/app/services/requisicao.service';
   styleUrls: ['./menu-principal.component.css']
 })
 export class MenuPrincipalComponent implements OnInit {
-
-  public nomeDoCandidato: string = "Felipe Yukio Fupunaga"
   
   public carregando: boolean = false
   public pagina: number = 1
@@ -20,12 +19,18 @@ export class MenuPrincipalComponent implements OnInit {
   public nomeDoPersonagemPesquisa: FormControl = new FormControl("")
   public listaPersonagens: Array<any> = []
 
-  constructor(private requisicaoService: RequisicaoService) { }
+  constructor(
+    private requisicaoService: RequisicaoService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
-    this.buscarListaPersonagens()
-    
+    // Limpar storage, caso tenha 'personagem'
+    localStorage.removeItem("personagem")
 
+    this.buscarListaPersonagens()
+
+    // Observable para monitorar mudanças no input de pesquisa
     this.nomeDoPersonagemPesquisa.valueChanges.pipe(
       debounceTime(500),
       concatMap(() => {
@@ -74,6 +79,11 @@ export class MenuPrincipalComponent implements OnInit {
     }
     nameStartsWith ? query.nameStartsWith = nameStartsWith : ""
     return query
+  }
+
+  mostrarDetalhamentoPersonagem(personagem: any): void {
+    localStorage.setItem("personagem", JSON.stringify(personagem))
+    this.router.navigate(["menu-principal/detalhamento"])
   }
 
 }

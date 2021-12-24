@@ -1,0 +1,46 @@
+<app-header-padrao></app-header-padrao>
+
+<main class="menu-principal-main">
+    <app-carregando *ngIf="carregando"></app-carregando>
+
+    <ng-container *ngIf="!carregando">
+        <div class="corpo">
+            <div class="card-personagem">
+                <div class="titulo">
+                    <img class="thumbnail" src="http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784/standard_medium.jpg" alt="">
+                    <div class="personagem">
+                        <span class="nome"><strong>NOME</strong></span>
+                        <span class="detalhamento">Descrição</span>
+                    </div>
+                </div>
+                <div class="informacoes">
+                    <div>Informações:</div>
+                    <div>
+                        <div>Series</div>
+                        <ul ngClass="lista">
+                            <li></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div>Comics</div>
+                        <ul ngClass="lista">
+                            <li></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div>Stories</div>
+                        <ul ngClass="lista">
+                            <li></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div>Events</div>
+                        <ul ngClass="lista">
+                            <li></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</main>

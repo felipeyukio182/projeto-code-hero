@@ -36,5 +36,7 @@
 }
 
 .paginacao a:hover:not(.ativo) {
-  background-color: #ddd;
+  /* background-color: #ddd; */
+  background-color: #5dafff;
+  color: #F5F5F5;
 }

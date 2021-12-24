@@ -8,11 +8,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MenuPrincipalComponent } from './components/menu-principal/menu-principal.component';
 import { TemplatesModule } from './templates/templates.module';
+import { DetalhamentoComponent } from './components/detalhamento/detalhamento.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuPrincipalComponent
+    MenuPrincipalComponent,
+    DetalhamentoComponent
   ],
   imports: [
     BrowserModule,

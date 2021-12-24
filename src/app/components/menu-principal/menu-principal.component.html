@@ -1,16 +1,4 @@
-
-<header class="menu-principal-header">
-    <div>
-        <img class="logo" src="https://www.objective.com.br/wp-content/uploads/2020/11/logo.svg" alt="Objective">
-        <div class="display-flex">
-            <span class="nome-candidato"><strong>{{ nomeDoCandidato }}</strong>&nbsp;Teste de Front-end</span>
-            <div class="cb">
-                <span><strong>CB</strong></span>
-            </div>
-        </div>
-    </div>
-</header>
-
+<app-header-padrao></app-header-padrao>
 
 <main class="menu-principal-main">
     <app-carregando *ngIf="carregando"></app-carregando>
@@ -35,7 +23,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let personagem of listaPersonagens" class="card-personagem">
+                    <tr *ngFor="let personagem of listaPersonagens" class="card-personagem" (click)="mostrarDetalhamentoPersonagem(personagem)">
                         <td class="personagem">
                             <div class="personagem-div">
                                 <img class="thumbnail" src="{{ personagem.thumbnail.path }}/standard_medium.{{ personagem.thumbnail.extension }}" alt="{{ personagem.name }}">
