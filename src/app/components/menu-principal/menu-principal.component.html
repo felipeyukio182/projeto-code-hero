@@ -33,16 +33,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="card-personagem">
+                    <tr *ngFor="let personagem of listaPersonagens" class="card-personagem">
                         <td class="personagem">
                             <img src="" alt="">
-                            <span class="nome-personagem"><strong>NOME DO PERSONAGEM</strong></span>
+                            <span class="nome-personagem"><strong>{{ personagem.name }}</strong></span>
                         </td>
                         <td class="series">
-                            <div class="nome-serie">VARIAS SERIES</div>
+                            <div *ngFor="let serie of personagem.series.items" class="nome-serie">
+                                <span>{{ serie.name }}</span>
+                            </div>
                         </td>
                         <td class="eventos">
-                            <div class="nome-evento">VARIOS EVENTOS</div>
+                            <div *ngFor="let evento of personagem.events.items" class="nome-evento">
+                                <span>{{ evento.name }}</span>
+                            </div>
                         </td>
                     </tr>
                 </tbody>
@@ -52,5 +56,5 @@
 </main>
 
 <footer class="menu-principal-footer">
-    <app-paginacao></app-paginacao>
+    <app-paginacao [tamanhoLista]="totalListaPersonagens" [(pagina)]="this.pagina" (paginaChange)="buscarListaPersonagens()"></app-paginacao>
 </footer>

@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -14,7 +15,8 @@ import { TemplatesModule } from './templates/templates.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    TemplatesModule
+    TemplatesModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
