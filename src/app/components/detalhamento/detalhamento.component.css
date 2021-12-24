@@ -41,8 +41,38 @@
 .card-personagem .informacoes {
     padding-top: 20px;
 }
-.card-personagem .informacoes > div {
-    background: aliceblue;
+.card-personagem .informacoes .info {
+    margin-bottom: 10px;
+}
+.card-personagem .informacoes > div:not(.info) {
+    background: #F5F5F5;
     box-shadow: 0px 0px 5px #00000033;
+    margin-bottom: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+.card-personagem .informacoes .series div, 
+.card-personagem .informacoes .comics div, 
+.card-personagem .informacoes .stories div, 
+.card-personagem .informacoes .events div {
+    padding: 0px 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.card-personagem .informacoes .series div i, 
+.card-personagem .informacoes .comics div i, 
+.card-personagem .informacoes .stories div i, 
+.card-personagem .informacoes .events div i {
+    transition: 1s;
+}
+.card-personagem .informacoes .lista {
+    list-style: none;
+    margin: 0px;
+    overflow: hidden;
+    transition: 1s;
+}
+.card-personagem .informacoes .lista.ativa {
+    list-style: none;
+    transition: 1s;
 }
 

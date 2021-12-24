@@ -7,36 +7,54 @@
         <div class="corpo">
             <div class="card-personagem">
                 <div class="titulo">
-                    <img class="thumbnail" src="http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784/standard_medium.jpg" alt="">
+                    <img class="thumbnail" src="{{ personagem.thumbnail.path }}/standard_medium.{{ personagem.thumbnail.extension }}" alt="{{ personagem.name }}">
                     <div class="personagem">
-                        <span class="nome"><strong>NOME</strong></span>
-                        <span class="detalhamento">Descrição</span>
+                        <span class="nome"><strong>{{ personagem.name }}</strong></span>
+                        <span class="detalhamento">
+                            {{ ( personagem.description.length > 300 ? personagem.description.slice(0, 299).concat('...') : personagem.description ) || 'Nenhuma descrição disponivel...' }}
+                        </span>
                     </div>
                 </div>
                 <div class="informacoes">
-                    <div>Informações:</div>
-                    <div>
-                        <div>Series</div>
-                        <ul ngClass="lista">
-                            <li></li>
+                    <div class="info">Algumas informações sobre {{ personagem.name }}:</div>
+                    <div class="series">
+                        <div (click)="mostrarLista(listaSeriesHTML, iconeSeries, listaSeries.length)">
+                            <span><strong>Series</strong></span>
+                            <i #iconeSeries class="fa fa-chevron-up"></i>
+                        </div>
+                        <ul #listaSeriesHTML class="lista" style="max-height: 0px">
+                            <li *ngFor="let serie of listaSeries">{{ serie.title }}</li>
+                            <li *ngIf="listaSeries.length == 0">Nenhuma serie encontrada...</li>
                         </ul>
                     </div>
-                    <div>
-                        <div>Comics</div>
-                        <ul ngClass="lista">
-                            <li></li>
+                    <div class="comics">
+                        <div (click)="mostrarLista(listaComicsHTML, iconeComics, listaComics.length)">
+                            <span><strong>Comics</strong></span>
+                            <i #iconeComics class="fa fa-chevron-up"></i>
+                        </div>
+                        <ul #listaComicsHTML class="lista" style="max-height: 0px">
+                            <li *ngFor="let comic of listaComics">{{ comic.title }}</li>
+                            <li *ngIf="listaComics.length == 0">Nenhuma comic encontrada...</li>
                         </ul>
                     </div>
-                    <div>
-                        <div>Stories</div>
-                        <ul ngClass="lista">
-                            <li></li>
+                    <div class="stories">
+                        <div (click)="mostrarLista(listaStoriesHTML, iconeStories, listaStories.length)">
+                            <span><strong>Stories</strong></span>
+                            <i #iconeStories class="fa fa-chevron-up"></i>
+                        </div>
+                        <ul #listaStoriesHTML class="lista" style="max-height: 0px">
+                            <li *ngFor="let story of listaStories">{{ story.title }}</li>
+                            <li *ngIf="listaStories.length == 0">Nenhuma historia encontrada...</li>
                         </ul>
                     </div>
-                    <div>
-                        <div>Events</div>
-                        <ul ngClass="lista">
-                            <li></li>
+                    <div class="events">
+                        <div (click)="mostrarLista(listaEventsHTML, iconeEvents, listaEvents.length)">
+                            <span><strong>Events</strong></span>
+                            <i #iconeEvents class="fa fa-chevron-up"></i>
+                        </div>
+                        <ul #listaEventsHTML class="lista" style="max-height: 0px">
+                            <li *ngFor="let event of listaEvents">{{ event.title }}</li>
+                            <li *ngIf="listaEvents.length == 0">Nenhum evento encontrado...</li>
                         </ul>
                     </div>
                 </div>
