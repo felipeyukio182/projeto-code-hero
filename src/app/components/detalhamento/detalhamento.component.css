@@ -96,5 +96,13 @@
     .card-personagem .informacoes {
         font-size: 14px;
     }
+    .card-personagem .informacoes .series ul, 
+    .card-personagem .informacoes .comics ul, 
+    .card-personagem .informacoes .stories ul, 
+    .card-personagem .informacoes .events ul {
+        padding: 0px 10px;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
 }
 

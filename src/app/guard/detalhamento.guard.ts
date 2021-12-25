@@ -15,6 +15,9 @@ export class DetalhamentoGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    
+    // Se o usuario tentar acessar manualmente a url de detalhamento, preciso validar se existe
+    // um personagem no localStorage. Caso contrário eu forço o retorno ao menu-principal 
     if(this.existePersonagemLocalStorage()) {
       return true;
     } else {

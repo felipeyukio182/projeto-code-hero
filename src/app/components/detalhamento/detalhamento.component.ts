@@ -80,7 +80,7 @@ export class DetalhamentoComponent implements OnInit {
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////
   // Lista responsiva
-  mostrarLista(lista: HTMLElement, icone: HTMLElement, tamanhoLista: number = 0) {
+  mostrarLista(lista: HTMLElement, icone: HTMLElement, tamanhoLista: number = 0): void {
     if(parseInt(lista.style.maxHeight.replace("px", "")) > 0) {
       icone.style.transform = "rotateZ(0deg)"
       // icone.style.transform = "rotateX(0deg)"

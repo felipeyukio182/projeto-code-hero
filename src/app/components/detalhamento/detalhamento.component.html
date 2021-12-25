@@ -11,7 +11,7 @@
                     <div class="personagem">
                         <span class="nome"><strong>{{ personagem.name }}</strong></span>
                         <span class="descricao">
-                            {{ ( personagem.description.length > 300 ? personagem.description.slice(0, 299).concat('...') : personagem.description ) || 'Nenhuma descrição disponivel...' }}
+                            {{ ( personagem.description.length > 300 ? personagem.description.slice(0, 299).concat('...') : personagem.description ) || 'Nenhuma descrição disponivel.' }}
                         </span>
                     </div>
                 </div>
@@ -23,8 +23,8 @@
                             <i #iconeSeries class="fa fa-chevron-up"></i>
                         </div>
                         <ul #listaSeriesHTML class="lista" style="max-height: 0px">
-                            <li *ngFor="let serie of listaSeries, index as i">{{ serie.title }}</li>
-                            <li *ngIf="listaSeries.length == 0">Nenhuma serie encontrada...</li>
+                            <li *ngFor="let serie of listaSeries">{{ serie.title }}</li>
+                            <li *ngIf="listaSeries.length == 0">Nenhuma serie encontrada.</li>
                         </ul>
                     </div>
                     <div class="comics">
@@ -34,7 +34,7 @@
                         </div>
                         <ul #listaComicsHTML class="lista" style="max-height: 0px">
                             <li *ngFor="let comic of listaComics">{{ comic.title }}</li>
-                            <li *ngIf="listaComics.length == 0">Nenhuma comic encontrada...</li>
+                            <li *ngIf="listaComics.length == 0">Nenhuma comic encontrada.</li>
                         </ul>
                     </div>
                     <div class="stories">
@@ -44,7 +44,7 @@
                         </div>
                         <ul #listaStoriesHTML class="lista" style="max-height: 0px">
                             <li *ngFor="let story of listaStories">{{ story.title }}</li>
-                            <li *ngIf="listaStories.length == 0">Nenhuma historia encontrada...</li>
+                            <li *ngIf="listaStories.length == 0">Nenhuma historia encontrada.</li>
                         </ul>
                     </div>
                     <div class="events">
@@ -54,7 +54,7 @@
                         </div>
                         <ul #listaEventsHTML class="lista" style="max-height: 0px">
                             <li *ngFor="let event of listaEvents">{{ event.title }}</li>
-                            <li *ngIf="listaEvents.length == 0">Nenhum evento encontrado...</li>
+                            <li *ngIf="listaEvents.length == 0">Nenhum evento encontrado.</li>
                         </ul>
                     </div>
                 </div>

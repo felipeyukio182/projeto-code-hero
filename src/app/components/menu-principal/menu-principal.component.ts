@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { concatMap, debounceTime, Observable } from 'rxjs';
+import { concatMap, debounceTime, Observable, Subscription } from 'rxjs';
 import { RequisicaoService } from 'src/app/services/requisicao.service';
 
 @Component({
@@ -15,9 +15,10 @@ export class MenuPrincipalComponent implements OnInit {
   public pagina: number = 1
   public totalListaPersonagens: number = 0
 
-  // public nomeDoPersonagemPesquisa: string|null = ""
   public nomeDoPersonagemPesquisa: FormControl = new FormControl("")
   public listaPersonagens: Array<any> = []
+
+  private listaPersonagensObservable: Subscription|null = null
 
   constructor(
     private requisicaoService: RequisicaoService,
@@ -32,7 +33,7 @@ export class MenuPrincipalComponent implements OnInit {
 
     // Observable para monitorar mudanças no input de pesquisa
     this.nomeDoPersonagemPesquisa.valueChanges.pipe(
-      debounceTime(500),
+      debounceTime(900),
       concatMap(() => {
         this.pagina = 1
         return this.buscarListaPersonagensObservable()
@@ -52,7 +53,12 @@ export class MenuPrincipalComponent implements OnInit {
   }
 
   buscarListaPersonagens(): void {
-    this.buscarListaPersonagensObservable().subscribe({
+    // Caso a requisição não tenha finalizado e o usuario realizar uma outra,
+    // eu cancelo a requisição com o 'unsubscribe' (para evitar sobrecarga de requisições)
+    if(this.listaPersonagensObservable) {
+      this.listaPersonagensObservable.unsubscribe()
+    }
+    this.listaPersonagensObservable = this.buscarListaPersonagensObservable().subscribe({
       next: (retorno: any) => {
         console.log(retorno)
         this.totalListaPersonagens = retorno.data.total

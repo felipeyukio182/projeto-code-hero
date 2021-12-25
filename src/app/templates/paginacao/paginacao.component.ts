@@ -66,7 +66,7 @@ export class PaginacaoComponent implements OnInit, OnChanges {
 
   ///////////////////////////////////////////////////////////////////////////////////
   // Mudando de paginação
-  selecionarPagina(pagina: number) {
+  selecionarPagina(pagina: number): void {
     if(pagina == this.pagina) {
       return
     }
@@ -78,7 +78,7 @@ export class PaginacaoComponent implements OnInit, OnChanges {
     this.paginaChange.emit(this.pagina)
   }
 
-  irParaProximaPagina() {
+  irParaProximaPagina(): void {
     if(this.pagina + 1 > this.qtdePaginas) {
       return
     }
@@ -90,7 +90,7 @@ export class PaginacaoComponent implements OnInit, OnChanges {
     this.paginaChange.emit(this.pagina)
   }
   
-  irParaPaginaAnterior() {
+  irParaPaginaAnterior(): void {
     if(this.pagina - 1 < 1) {
       return
     }
@@ -102,7 +102,7 @@ export class PaginacaoComponent implements OnInit, OnChanges {
     this.paginaChange.emit(this.pagina)
   }
 
-  irParaPrimeiraPagina() {
+  irParaPrimeiraPagina(): void {
     this.pagina = 1
     this.menorPagina = this.calcularMenorPagina(this.pagina)
     this.maiorPagina = this.calcularMaiorPagina(this.menorPagina)
@@ -111,7 +111,7 @@ export class PaginacaoComponent implements OnInit, OnChanges {
     this.paginaChange.emit(this.pagina)
   }
 
-  irParaUltimaPagina() {
+  irParaUltimaPagina(): void {
     this.pagina = this.qtdePaginas
     this.menorPagina = this.calcularMenorPagina(this.pagina)
     this.maiorPagina = this.calcularMaiorPagina(this.menorPagina)
@@ -122,27 +122,27 @@ export class PaginacaoComponent implements OnInit, OnChanges {
 
   ///////////////////////////////////////////////////////////////////////////////////
   // Utils
-  calcularMenorPagina(pagAtual: number) {
+  calcularMenorPagina(pagAtual: number): number {
     const menorPag = pagAtual - this.distancia
     return menorPag > 1 ? menorPag : 1
   }
-  calcularMaiorPagina(menorPag: number) {
+  calcularMaiorPagina(menorPag: number): number {
     const maior = menorPag + (2 * this.distancia)
     return maior < this.qtdePaginas ? maior : this.qtdePaginas
   }
 
-  calcularQtdePaginas() {
+  calcularQtdePaginas(): void {
     this.qtdePaginas = Math.ceil(this.tamanhoLista/this.itensPorPagina)
   }
-  montarArrayPaginas() {
+  montarArrayPaginas(): void {
     this.arrayPaginas = []
     for(let i = this.menorPagina; i < this.maiorPagina + 1; i++) {
       this.arrayPaginas.push(i)
     }
-    console.log(this.qtdePaginas)
+    // console.log(this.qtdePaginas)
   }
 
-  esconderSetasPaginacao(tipoSeta: "primeira"|"anterior"|"proxima"|"ultima") {
+  esconderSetasPaginacao(tipoSeta: "primeira"|"anterior"|"proxima"|"ultima"): string {
     const pag = this.pagina
     const qtdePag = this.qtdePaginas
     if((pag <= 2 && tipoSeta == "primeira") || 
