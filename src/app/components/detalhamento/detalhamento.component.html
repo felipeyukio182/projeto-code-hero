@@ -20,7 +20,7 @@
                     <div class="series">
                         <div (click)="mostrarLista(listaSeriesHTML, iconeSeries, listaSeries.length)">
                             <span><strong>Series</strong></span>
-                            <i #iconeSeries class="fa fa-chevron-up"></i>
+                            <i #iconeSeries class="fa fa-chevron-down"></i>
                         </div>
                         <ul #listaSeriesHTML class="lista" style="max-height: 0px">
                             <li *ngFor="let serie of listaSeries">{{ serie.title }}</li>
@@ -30,7 +30,7 @@
                     <div class="comics">
                         <div (click)="mostrarLista(listaComicsHTML, iconeComics, listaComics.length)">
                             <span><strong>Comics</strong></span>
-                            <i #iconeComics class="fa fa-chevron-up"></i>
+                            <i #iconeComics class="fa fa-chevron-down"></i>
                         </div>
                         <ul #listaComicsHTML class="lista" style="max-height: 0px">
                             <li *ngFor="let comic of listaComics">{{ comic.title }}</li>
@@ -40,7 +40,7 @@
                     <div class="stories">
                         <div (click)="mostrarLista(listaStoriesHTML, iconeStories, listaStories.length)">
                             <span><strong>Historias</strong></span>
-                            <i #iconeStories class="fa fa-chevron-up"></i>
+                            <i #iconeStories class="fa fa-chevron-down"></i>
                         </div>
                         <ul #listaStoriesHTML class="lista" style="max-height: 0px">
                             <li *ngFor="let story of listaStories">{{ story.title }}</li>
@@ -50,7 +50,7 @@
                     <div class="events">
                         <div (click)="mostrarLista(listaEventsHTML, iconeEvents, listaEvents.length)">
                             <span><strong>Eventos</strong></span>
-                            <i #iconeEvents class="fa fa-chevron-up"></i>
+                            <i #iconeEvents class="fa fa-chevron-down"></i>
                         </div>
                         <ul #listaEventsHTML class="lista" style="max-height: 0px">
                             <li *ngFor="let event of listaEvents">{{ event.title }}</li>
