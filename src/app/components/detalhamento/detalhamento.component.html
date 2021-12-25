@@ -10,7 +10,7 @@
                     <img class="thumbnail" src="{{ personagem.thumbnail.path }}/standard_medium.{{ personagem.thumbnail.extension }}" alt="{{ personagem.name }}">
                     <div class="personagem">
                         <span class="nome"><strong>{{ personagem.name }}</strong></span>
-                        <span class="detalhamento">
+                        <span class="descricao">
                             {{ ( personagem.description.length > 300 ? personagem.description.slice(0, 299).concat('...') : personagem.description ) || 'Nenhuma descrição disponivel...' }}
                         </span>
                     </div>
@@ -23,7 +23,7 @@
                             <i #iconeSeries class="fa fa-chevron-up"></i>
                         </div>
                         <ul #listaSeriesHTML class="lista" style="max-height: 0px">
-                            <li *ngFor="let serie of listaSeries">{{ serie.title }}</li>
+                            <li *ngFor="let serie of listaSeries, index as i">{{ serie.title }}</li>
                             <li *ngIf="listaSeries.length == 0">Nenhuma serie encontrada...</li>
                         </ul>
                     </div>

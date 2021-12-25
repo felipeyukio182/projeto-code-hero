@@ -85,10 +85,12 @@ export class DetalhamentoComponent implements OnInit {
       icone.style.transform = "rotateZ(0deg)"
       // icone.style.transform = "rotateX(0deg)"
       lista.style.maxHeight = 0 + 'px'
+      lista.style.paddingBottom = '0px'
     } else {
       icone.style.transform = "rotateZ(180deg)"
       // icone.style.transform = "rotateX(180deg)"
       lista.style.maxHeight = (this.alturaPadraoListItem * tamanhoLista) + 'px'
+      lista.style.paddingBottom = '10px'
     }
   }
 
