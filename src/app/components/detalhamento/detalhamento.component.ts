@@ -89,7 +89,7 @@ export class DetalhamentoComponent implements OnInit {
     } else {
       icone.style.transform = "rotateZ(180deg)"
       // icone.style.transform = "rotateX(180deg)"
-      lista.style.maxHeight = (this.alturaPadraoListItem * tamanhoLista) + 'px'
+      lista.style.maxHeight = (this.alturaPadraoListItem * (tamanhoLista || 1)) + 'px'
       lista.style.paddingBottom = '10px'
     }
   }

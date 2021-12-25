@@ -32,13 +32,13 @@
                         </td>
                         <td class="series">
                             <div *ngFor="let serie of personagem.series.items, index as i" class="nome-serie">
-                                <span *ngIf="i < 4">{{ serie.name.slice(0, 59) }}</span>
+                                <span *ngIf="i < 4">{{ serie.name.length > 50 ? serie.name.slice(0, 49).concat('...') : serie.name }}</span>
                                 <span *ngIf="i == 4">+{{ personagem.series.available - i }}</span>
                             </div>
                         </td>
                         <td class="eventos">
                             <div *ngFor="let evento of personagem.events.items, index as i" class="nome-evento">
-                                <span *ngIf="i < 4">{{ evento.name.slice(0, 59) }}</span>
+                                <span *ngIf="i < 4">{{ evento.name.length > 50 ? evento.name.slice(0, 49).concat('...') : evento.name }}</span>
                                 <span *ngIf="i == 4">+{{ personagem.events.available - i }}</span>
                             </div>
                         </td>
