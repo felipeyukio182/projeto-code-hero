@@ -2,7 +2,6 @@
 /* -- MAIN -- */
 .menu-principal-main {
     background-color: #E5E5E5;
-    /* height: calc(100vh - 64px - 96px); */
     height: 100%;
     font-family: sans-serif;
 }
@@ -156,4 +155,52 @@
     z-index: 20;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     opacity: 1;
+}
+
+@media only screen and (max-width: 768px) {
+
+    .series-th, .eventos-th, .series, .eventos {
+        display: none;
+    }
+    .menu-principal-main > .corpo {
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .menu-principal-main .pesquisa {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 32px;
+    }
+    .menu-principal-main h1 {
+        font-size: 24px;
+    }
+    .menu-principal-main .pesquisa label {
+        font-size: 14px;
+    }
+    .menu-principal-main .pesquisa .pesquisa-div {
+        width: 100%;
+    }
+    .menu-principal-main .pesquisa .pesquisa-div input {
+        width: calc(100% - 34px);
+        font-size: 14px;
+    }
+    .menu-principal-main .pesquisa .pesquisa-div input::placeholder {
+        font-size: 14px;
+    }
+    .tabela-personagens th {
+        padding: 0px 0px 1px 96px;
+    }
+    .tabela-personagens tr.card-personagem {
+        height: 72px;
+    }
+    .tabela-personagens tr.card-personagem .personagem {
+        padding-left: 16px;
+    }
+    .tabela-personagens tr.card-personagem .personagem .personagem-div .nome-personagem {
+        font-size: 14px;
+    }
 }

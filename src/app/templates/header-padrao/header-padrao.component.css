@@ -29,6 +29,7 @@
 }
 .menu-principal-header .cb {
     padding: 0px 24px;
+    font-size: 15px;
 }
 .menu-principal-header .cb span {
     display: flex;
@@ -39,4 +40,17 @@
     background: #F5F5F5 0% 0% no-repeat padding-box;
     border-radius: 4px;
     opacity: 1;
+}
+
+
+@media only screen and (max-width: 768px) {
+
+    .menu-principal-header .nome-candidato {
+        flex-direction: column;
+        align-items: end;
+        font-size: 12px;
+    }
+    .menu-principal-header .cb {
+        font-size: 15px;
+    }
 }

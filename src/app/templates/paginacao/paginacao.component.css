@@ -6,17 +6,25 @@
   color: black;
   float: left;
   padding: 6px 16px;
-  text-decoration: none;
   font-size: 16px;
   background: #F5F5F5 0% 0% no-repeat padding-box;
   border: 1px solid #E5E5E5;
   border-radius: 3px;
   opacity: 1;
   margin: 0px 8px;
+  text-decoration: none;
   font-family: sans-serif;
 }
+.paginacao a.pagina {
+  padding: 0px;
+  min-height: 32px;
+  min-width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-.paginacao a.ativo {
+.paginacao a.pagina.ativo {
   background: #167ABC 0% 0% no-repeat padding-box;
   border: 1px solid #167ABC;
   opacity: 1;
@@ -30,6 +38,11 @@
   height: 20px;
   margin: 0px;
   border: none;
+  min-height: 22px;
+  min-width: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .paginacao a.setas.setas-esconder {
   opacity: 0;
@@ -39,4 +52,14 @@
   /* background-color: #ddd; */
   background-color: #5dafff;
   color: #F5F5F5;
+}
+
+@media only screen and (max-width: 768px) {
+  .paginacao a.pagina {
+    min-height: 32px;
+    min-width: 32px;
+  }
+  .paginacao a.setas {
+    padding: 6px 12px;
+  }
 }

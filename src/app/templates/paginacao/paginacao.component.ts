@@ -24,10 +24,29 @@ export class PaginacaoComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
-    // console.log(this.tamanhoLista)
+    document.body.clientWidth < 768 ? this.distancia = 1 : this.distancia = 2
+
+    // Adicionando evento 'resize' para detectar mudanças no tamanho da tela
+    // e alterar a quantidade de botoes mostrados na paginação
+    window.addEventListener('resize', () => {
+      const largura = document.body.clientWidth
+      if(largura < 768) { // 784
+        this.distancia = 1
+        this.menorPagina = this.calcularMenorPagina(this.pagina)
+        this.maiorPagina = this.calcularMaiorPagina(this.menorPagina)
+        this.montarArrayPaginas()
+      } else {
+        this.distancia = 2
+        this.menorPagina = this.calcularMenorPagina(this.pagina)
+        this.maiorPagina = this.calcularMaiorPagina(this.menorPagina)
+        this.montarArrayPaginas()
+      }
+    })
+
     this.arrayPaginas = []
     this.qtdePaginas = Math.ceil(this.tamanhoLista/this.itensPorPagina)
     this.montarArrayPaginas()
+ 
   }
 
   ngOnChanges(changes: SimpleChanges): void {
