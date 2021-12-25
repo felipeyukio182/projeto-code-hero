@@ -7,11 +7,11 @@
         <div class="corpo">
             <div class="card-personagem">
                 <div class="titulo">
-                    <img class="thumbnail" src="{{ personagem.thumbnail.path }}/standard_medium.{{ personagem.thumbnail.extension }}" alt="{{ personagem.name }}">
+                    <img class="thumbnail" src="{{ personagem.thumbnail.path }}/landscape_amazing.{{ personagem.thumbnail.extension }}" alt="{{ personagem.name }}">
                     <div class="personagem">
                         <span class="nome"><strong>{{ personagem.name }}</strong></span>
                         <span class="descricao">
-                            {{ ( personagem.description.length > 300 ? personagem.description.slice(0, 299).concat('...') : personagem.description ) || 'Nenhuma descrição disponivel.' }}
+                            {{ ( personagem.description.length > 600 ? personagem.description.slice(0, 599).concat('...') : personagem.description ) || 'Nenhuma descrição disponivel.' }}
                         </span>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
                     </div>
                     <div class="stories">
                         <div (click)="mostrarLista(listaStoriesHTML, iconeStories, listaStories.length)">
-                            <span><strong>Stories</strong></span>
+                            <span><strong>Historias</strong></span>
                             <i #iconeStories class="fa fa-chevron-up"></i>
                         </div>
                         <ul #listaStoriesHTML class="lista" style="max-height: 0px">
@@ -49,7 +49,7 @@
                     </div>
                     <div class="events">
                         <div (click)="mostrarLista(listaEventsHTML, iconeEvents, listaEvents.length)">
-                            <span><strong>Events</strong></span>
+                            <span><strong>Eventos</strong></span>
                             <i #iconeEvents class="fa fa-chevron-up"></i>
                         </div>
                         <ul #listaEventsHTML class="lista" style="max-height: 0px">
