@@ -3,6 +3,7 @@ import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { concatMap, debounceTime, Observable, Subscription } from 'rxjs';
 import { RequisicaoService } from 'src/app/services/requisicao.service';
+import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
   selector: 'app-menu-principal',
@@ -22,7 +23,8 @@ export class MenuPrincipalComponent implements OnInit {
 
   constructor(
     private requisicaoService: RequisicaoService,
-    private router: Router
+    private router: Router,
+    public toast: ToastService
   ) { }
 
   ngOnInit(): void {
@@ -46,6 +48,7 @@ export class MenuPrincipalComponent implements OnInit {
         this.carregando = false
       },
       error: (err: any) => {
+        this.toast.erroAoRequisitarServidor()
         console.log(err)
         this.carregando = false
       }
@@ -66,6 +69,7 @@ export class MenuPrincipalComponent implements OnInit {
         this.carregando = false
       },
       error: (err: any) => {
+        this.toast.erroAoRequisitarServidor()
         console.log(err)
         this.carregando = false
       }

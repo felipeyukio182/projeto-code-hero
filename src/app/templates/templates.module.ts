@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PaginacaoComponent } from './paginacao/paginacao.component';
 import { CarregandoComponent } from './carregando/carregando.component';
 import { HeaderPadraoComponent } from './header-padrao/header-padrao.component';
+import { ToastComponent } from './toast/toast.component';
 
 
 
@@ -10,7 +11,8 @@ import { HeaderPadraoComponent } from './header-padrao/header-padrao.component';
   declarations: [
     PaginacaoComponent,
     CarregandoComponent,
-    HeaderPadraoComponent
+    HeaderPadraoComponent,
+    ToastComponent
   ],
   imports: [
     CommonModule
@@ -18,7 +20,8 @@ import { HeaderPadraoComponent } from './header-padrao/header-padrao.component';
   exports: [
     PaginacaoComponent,
     CarregandoComponent,
-    HeaderPadraoComponent
+    HeaderPadraoComponent,
+    ToastComponent
   ]
 })
 export class TemplatesModule { }

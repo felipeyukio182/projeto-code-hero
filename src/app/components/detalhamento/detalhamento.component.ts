@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { concatMap, forkJoin, Observable } from 'rxjs';
 import { RequisicaoService } from 'src/app/services/requisicao.service';
+import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
   selector: 'app-detalhamento',
@@ -21,7 +22,8 @@ export class DetalhamentoComponent implements OnInit {
   public listaStories: Array<any> = []
 
   constructor(
-    private requisicaoService: RequisicaoService
+    private requisicaoService: RequisicaoService,
+    public toast: ToastService
   ) { }
   
   ngOnInit(): void {
@@ -46,6 +48,7 @@ export class DetalhamentoComponent implements OnInit {
         this.carregando = false
       },
       error: (err: any) => {
+        this.toast.erroAoRequisitarServidor()
         console.log(err)
         this.carregando = false
       }

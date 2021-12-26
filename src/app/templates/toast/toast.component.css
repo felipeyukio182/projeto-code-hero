@@ -1,0 +1,30 @@
+
+.toast {
+    opacity: 0;
+    transition: 0.5s;
+    min-width: 250px;
+    /* margin-left: -125px; */
+    background-color: #555555;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    padding: 16px;
+    position: fixed;
+    z-index: 50;
+    right: 20px;
+    top: 84px;
+    font-family: sans-serif;
+}
+
+.toast.mostrar {
+    opacity: 1;
+}
+
+.toast.mostrar.erro {
+    background-color: #ff0000;
+}
+  
+.toast.mostrar.sucesso {
+    background-color: #00b400;
+}
+  
