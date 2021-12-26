@@ -51,10 +51,10 @@
     margin-bottom: 10px;
     /* padding: 10px; */
 }
-.card-personagem .informacoes .series div, 
-.card-personagem .informacoes .comics div, 
-.card-personagem .informacoes .stories div, 
-.card-personagem .informacoes .events div {
+.card-personagem .informacoes .series > div, 
+.card-personagem .informacoes .comics > div, 
+.card-personagem .informacoes .stories > div, 
+.card-personagem .informacoes .events > div {
     /* padding: 0px 10px; */
     cursor: pointer;
     padding: 10px;
@@ -72,6 +72,44 @@
     margin: 0px;
     overflow: hidden;
     transition: 1s;
+    padding: 0px 0px 0px 10px;
+}
+.card-personagem .informacoes .lista li {
+    display: flex;
+    padding: 5px;
+    max-height: 154px;
+    overflow: hidden;
+}
+.card-personagem .informacoes .lista li img {
+    border-radius: 4px;
+    border: solid 2px #555555;
+    height: 150px;
+}
+.card-personagem .informacoes .lista li div {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 10px;
+    
+    position: relative;
+}
+.card-personagem .informacoes .lista li div .nome-lista {
+    font-size: 18px;
+}
+.card-personagem .informacoes .lista li div span:not(.nome-lista) {
+    font-size: 14px;
+    max-height: 95px;
+    overflow: hidden;
+}
+.card-personagem .informacoes .lista li div .mais-informacoes {
+    position: absolute;
+    bottom: 0px;
+    left: 10px;
+    background: #ec1d24;
+    color: white;
+    border-radius: 3px;
+    padding: 3px;
+    width: 125px;
+    cursor: pointer;
 }
 .card-personagem .informacoes .lista.ativa {
     list-style: none;
@@ -107,13 +145,26 @@
     .card-personagem .informacoes {
         font-size: 14px;
     }
-    .card-personagem .informacoes .series ul, 
-    .card-personagem .informacoes .comics ul, 
-    .card-personagem .informacoes .stories ul, 
-    .card-personagem .informacoes .events ul {
-        padding: 0px 10px;
-        overflow-x: auto;
-        white-space: nowrap;
+    .card-personagem .informacoes .series .lista, 
+    .card-personagem .informacoes .comics .lista, 
+    .card-personagem .informacoes .stories .lista, 
+    .card-personagem .informacoes .events .lista {
+        padding: 0px 5px;
+        /* overflow-x: auto; */
+        /* white-space: nowrap; */
+    }
+    .card-personagem .informacoes .series .lista li, 
+    .card-personagem .informacoes .comics .lista li, 
+    .card-personagem .informacoes .stories .lista li, 
+    .card-personagem .informacoes .events .lista li {
+        padding: 5px;
+        max-height: 154px;
+    }
+    .card-personagem .informacoes .series .lista li div span:not(.nome-lista), 
+    .card-personagem .informacoes .comics .lista li div span:not(.nome-lista), 
+    .card-personagem .informacoes .stories .lista li div span:not(.nome-lista), 
+    .card-personagem .informacoes .events .lista li div span:not(.nome-lista) {
+        display: none;
     }
 }
 

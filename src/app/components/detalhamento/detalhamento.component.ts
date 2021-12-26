@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { forkJoin, Observable } from 'rxjs';
+import { concatMap, forkJoin, Observable } from 'rxjs';
 import { RequisicaoService } from 'src/app/services/requisicao.service';
 
 @Component({
@@ -11,7 +11,8 @@ export class DetalhamentoComponent implements OnInit {
 
   public carregando: boolean = false
 
-  public alturaPadraoListItem: number = 18 // Altura padrao em px do li das ul
+  public alturaPadraoListItemSemImg: number = 28 // Altura padrao em px do li das ul (antes estava 18)
+  public alturaPadraoListItemComImg: number = 164 // Altura padrao das li
 
   public personagem: any = null
   public listaComics: Array<any> = []
@@ -52,45 +53,73 @@ export class DetalhamentoComponent implements OnInit {
   }
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////
+  // Navegar para outras url
+  abrirNovaTab(url: string) {
+    window.open(url, '_blank');
+  }
+
+  /////////////////////////////////////////////////////////////////////////////////////////////////////
   // Observables das requisições GET
   buscarComics(): Observable<any> {
     const query = {
-      limit: this.personagem.comics.available < 100 ? this.personagem.comics.available : 100
+      limit: 10,
+      orderBy: '-focDate'
     }
     return this.requisicaoService.getMarvel(`v1/public/characters/${this.personagem.id}/comics`, query)
   }
   buscarEvents(): Observable<any> {
     const query = {
-      limit: this.personagem.events.available < 100 ? this.personagem.events.available : 100
+      limit: 10,
+      orderBy: '-startDate'
     }
     return this.requisicaoService.getMarvel(`v1/public/characters/${this.personagem.id}/events`, query)
   }
   buscarSeries(): Observable<any> {
     const query = {
-      limit: this.personagem.series.available < 100 ? this.personagem.series.available : 100
+      limit: 10,
+      orderBy: '-startYear'
     }
     return this.requisicaoService.getMarvel(`v1/public/characters/${this.personagem.id}/series`, query)
   }
   buscarStories(): Observable<any> {
     const query = {
-      limit: this.personagem.stories.available < 100 ? this.personagem.stories.available : 100
+      limit: 10,
+      orderBy: '-modified'
     }
     return this.requisicaoService.getMarvel(`v1/public/characters/${this.personagem.id}/stories`, query)
   }
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////
   // Lista responsiva
-  mostrarLista(lista: HTMLElement, icone: HTMLElement, tamanhoLista: number = 0): void {
-    if(parseInt(lista.style.maxHeight.replace("px", "")) > 0) {
-      icone.style.transform = "rotateZ(0deg)"
-      // icone.style.transform = "rotateX(0deg)"
-      lista.style.maxHeight = 0 + 'px'
-      lista.style.paddingBottom = '0px'
+  mostrarLista(lista: HTMLElement, icone: HTMLElement, tamanhoLista: number = 0, usaImagem: boolean = true): void {
+    if(usaImagem) {
+
+      if(parseInt(lista.style.maxHeight.replace("px", "")) > 0) {
+        icone.style.transform = "rotateZ(0deg)"
+        // icone.style.transform = "rotateX(0deg)"
+        lista.style.maxHeight = '0px'
+        lista.style.paddingBottom = '0px'
+      } else {
+        icone.style.transform = "rotateZ(180deg)"
+        // icone.style.transform = "rotateX(180deg)"
+        lista.style.maxHeight = ((this.alturaPadraoListItemComImg * tamanhoLista) || this.alturaPadraoListItemSemImg) + 'px'
+        lista.style.paddingBottom = '10px'
+      }
+
     } else {
-      icone.style.transform = "rotateZ(180deg)"
-      // icone.style.transform = "rotateX(180deg)"
-      lista.style.maxHeight = (this.alturaPadraoListItem * (tamanhoLista || 1)) + 'px'
-      lista.style.paddingBottom = '10px'
+
+      if(parseInt(lista.style.maxHeight.replace("px", "")) > 0) {
+        icone.style.transform = "rotateZ(0deg)"
+        // icone.style.transform = "rotateX(0deg)"
+        lista.style.maxHeight = '0px'
+        lista.style.paddingBottom = '0px'
+      } else {
+        icone.style.transform = "rotateZ(180deg)"
+        // icone.style.transform = "rotateX(180deg)"
+        lista.style.maxHeight = ((this.alturaPadraoListItemSemImg * tamanhoLista) || this.alturaPadraoListItemSemImg) + 'px'
+        lista.style.paddingBottom = '10px'
+      }
+
     }
   }
 

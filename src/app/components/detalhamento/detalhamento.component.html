@@ -23,7 +23,14 @@
                             <i #iconeSeries class="fa fa-chevron-down"></i>
                         </div>
                         <ul #listaSeriesHTML class="lista" style="max-height: 0px">
-                            <li *ngFor="let serie of listaSeries">{{ serie.title }}</li>
+                            <li *ngFor="let serie of listaSeries">
+                                <img src="{{ serie.thumbnail.path }}/portrait_medium.{{ serie.thumbnail.extension }}" alt="{{ serie.title }}">
+                                <div>
+                                    <span class="nome-lista"><strong>{{ serie.title }}</strong></span>
+                                    <span>{{ serie.description }}</span>
+                                    <button (click)="abrirNovaTab(serie.urls[0].url)" class="mais-informacoes">Mais informações</button>
+                                </div>
+                            </li>
                             <li *ngIf="listaSeries.length == 0">Nenhuma serie encontrada.</li>
                         </ul>
                     </div>
@@ -33,17 +40,26 @@
                             <i #iconeComics class="fa fa-chevron-down"></i>
                         </div>
                         <ul #listaComicsHTML class="lista" style="max-height: 0px">
-                            <li *ngFor="let comic of listaComics">{{ comic.title }}</li>
+                            <li *ngFor="let comic of listaComics">
+                                <img src="{{ comic.thumbnail.path }}/portrait_medium.{{ comic.thumbnail.extension }}" alt="{{ comic.title }}">
+                                <div>
+                                    <span class="nome-lista"><strong>{{ comic.title }}</strong></span>
+                                    <span>{{ comic.description }}</span>
+                                    <button (click)="abrirNovaTab(comic.urls[0].url)" class="mais-informacoes">Mais informações</button>
+                                </div>
+                            </li>
                             <li *ngIf="listaComics.length == 0">Nenhuma comic encontrada.</li>
                         </ul>
                     </div>
                     <div class="stories">
-                        <div (click)="mostrarLista(listaStoriesHTML, iconeStories, listaStories.length)">
+                        <div (click)="mostrarLista(listaStoriesHTML, iconeStories, listaStories.length, false)">
                             <span><strong>Historias</strong></span>
                             <i #iconeStories class="fa fa-chevron-down"></i>
                         </div>
                         <ul #listaStoriesHTML class="lista" style="max-height: 0px">
-                            <li *ngFor="let story of listaStories">{{ story.title }}</li>
+                            <li *ngFor="let story of listaStories">
+                                <span class="nome-lista">{{ story.title }}</span>
+                            </li>
                             <li *ngIf="listaStories.length == 0">Nenhuma historia encontrada.</li>
                         </ul>
                     </div>
@@ -53,7 +69,14 @@
                             <i #iconeEvents class="fa fa-chevron-down"></i>
                         </div>
                         <ul #listaEventsHTML class="lista" style="max-height: 0px">
-                            <li *ngFor="let event of listaEvents">{{ event.title }}</li>
+                            <li *ngFor="let event of listaEvents">
+                                <img src="{{ event.thumbnail.path }}/portrait_medium.{{ event.thumbnail.extension }}" alt="{{ event.title }}">
+                                <div>
+                                    <span class="nome-lista"><strong>{{ event.title }}</strong></span>
+                                    <span>{{ event.description }}</span>
+                                    <button (click)="abrirNovaTab(event.urls[0].url)" class="mais-informacoes">Mais informações</button>
+                                </div>
+                            </li>
                             <li *ngIf="listaEvents.length == 0">Nenhum evento encontrado.</li>
                         </ul>
                     </div>
