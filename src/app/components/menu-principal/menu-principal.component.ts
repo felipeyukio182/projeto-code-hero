@@ -48,7 +48,7 @@ export class MenuPrincipalComponent implements OnInit {
         this.carregando = false
       },
       error: (err: any) => {
-        this.toast.erroAoRequisitarServidor()
+        this.toast.erroAoRequisitarServidorMarvel()
         console.log(err)
         this.carregando = false
       }
@@ -69,7 +69,7 @@ export class MenuPrincipalComponent implements OnInit {
         this.carregando = false
       },
       error: (err: any) => {
-        this.toast.erroAoRequisitarServidor()
+        this.toast.erroAoRequisitarServidorMarvel()
         console.log(err)
         this.carregando = false
       }

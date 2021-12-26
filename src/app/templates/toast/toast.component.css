@@ -2,22 +2,23 @@
 .toast {
     opacity: 0;
     transition: 0.5s;
-    min-width: 250px;
-    /* margin-left: -125px; */
+    /* min-width: 250px; */
+    width: 350px;
     background-color: #555555;
     color: #fff;
     text-align: center;
     border-radius: 4px;
     padding: 16px;
     position: fixed;
-    z-index: 50;
     right: 20px;
     top: 84px;
     font-family: sans-serif;
+    z-index: -1;
 }
 
 .toast.mostrar {
     opacity: 1;
+    z-index: 50;
 }
 
 .toast.mostrar.erro {
@@ -28,3 +29,13 @@
     background-color: #00b400;
 }
   
+
+@media only screen and (max-width: 768px) {
+    .toast {
+        right: 50%;
+        top: 50%;
+
+        width: 300px;
+        transform: translateX(50%);
+    }
+}

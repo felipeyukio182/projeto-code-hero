@@ -8,12 +8,12 @@ export class ToastService {
   public mensagem: string = ""
   public estilo: "sucesso"|"erro"|"" = ""
   public mostrarToast: boolean = false
-  public duracao: number = 3000
+  public duracao: number = 4000 // 4s
 
   constructor() { }
 
-  erroAoRequisitarServidor(): void {
-    this.mostrarMensagem("Erro ao requisitar servidor...", "erro", this.duracao)
+  erroAoRequisitarServidorMarvel(): void {
+    this.mostrarMensagem(`Erro ao requisitar servidor da Marvel... Favor atualize a pagina e tente novamente`, "erro", this.duracao)
   }
 
   async mostrarMensagem(msg: string, estilo: "sucesso"|"erro"|"", duracao: number): Promise<void> {
